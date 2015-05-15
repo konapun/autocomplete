@@ -12,30 +12,24 @@
 #   s = ac.autocomplete('s')
 class Autocomplete
   attr_accessor :case_sensitive
- 
+
   def initialize(corpus, case_sensitive=true)
     @corpus = corpus
     @case_sensitive = case_sensitive
   end
- 
+
   def autocomplete(word)
-    found = []
-    @corpus.each do |contained|
-      if transform_case?(contained.to_s).index(transform_case?(word.to_s)) == 0
-        found.push(contained)
-      end
+    @corpus.reject do |contained|
+      transform_case?(contained.to_s).index(transform_case?(word.to_s)) != 0
     end
- 
-    found
   end
- 
+
   private
- 
   def transform_case?(word)
     unless @case_sensitive
       word = word.upcase
     end
- 
+
     word
   end
 end

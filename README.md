@@ -1,5 +1,5 @@
 # autocomplete
-Get autocompletion suggestions
+Get autocomplete suggestions for a string given an array of possible values
 
 ## Usage
 ```ruby
