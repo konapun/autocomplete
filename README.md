@@ -17,5 +17,5 @@ If you'd like to search a corpus for a string appearing in any position, run `au
 argument set to `true`
 
 ```ruby
-ou = ac.autocomplete('ou') # => ['sound']
+ou = ac.autocomplete('ou', true) # => ['sound']
 ```
